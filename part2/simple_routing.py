@@ -24,4 +24,4 @@ def _handle_PacketIn (event):
 
 def launch ():
   core.openflow.addListenerByName("PacketIn", _handle_PacketIn)
-  log.info("Pair-Learning switch running.")
+  log.info("Simple Routing Switch Running.")
