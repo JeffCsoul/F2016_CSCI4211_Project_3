@@ -1,0 +1,5 @@
+Prediction of RTT: about 140ms
+Measured average RTT: 142.614ms
+
+Prediction of throughput: less than but close to 20 Mbits/sec
+Measured throughput: 18.7 Mbits/sec
