@@ -12,11 +12,13 @@ log = core.getLogger()
 #use this table to add the needed entries
 table = {}
 
-
+# Handle messages the switch has sent us because it has no
+# matching rule.
 
 def _handle_PacketIn (event):
+	
   
-  # tell the switch that the future packet with dst = packet.src should automatically go event.port
+  # tell switch the future packet with dst = packet.src should automatically go event.port
   packet = event.parsed
   msg = of.ofp_flow_mod()
   msg.match.dl_dst = packet.src
@@ -25,6 +27,7 @@ def _handle_PacketIn (event):
   log.debug("Installing %s <-> %s" % (packet.src, packet.dst))
   # without using table {}
   # flood
+  print "Implement >>> ", packet.src 
   msg = of.ofp_packet_out(data = event.ofp)
   msg.actions.append(of.ofp_action_output(port = of.OFPP_FLOOD))
   event.connection.send(msg)
