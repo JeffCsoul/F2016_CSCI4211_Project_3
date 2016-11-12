@@ -1,5 +1,9 @@
 Prediction of RTT: about 140ms
 Measured average RTT: 142.614ms
 
-Prediction of throughput: less than but close to 20 Mbits/sec
+Prediction of throughput: close to and less than 20 Mbits/sec
 Measured throughput: 18.7 Mbits/sec
+
+If h1 wants to communicate with h4, the path shall be (h1->s1), L1, L2, L3, (s4->h4). In this path, the delay should be the sum of all links which is 40ms+10ms+20ms=70ms. If it is a round trip, the time should be 70ms*2 which is 140ms. The measured average RTT shows our prediction is correct.
+
+When considering the throughput, the capacity of this path depends on the link with lowest bandwidth which is L1 and its bandwidth is 20Mbps. The measured throughput basically shows our prediction is correct.
