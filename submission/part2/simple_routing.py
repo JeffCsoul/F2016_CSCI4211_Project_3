@@ -41,10 +41,10 @@ def _handle_PacketIn (event):
     msg.match.dl_src = packet.dst
     msg.actions.append(of.ofp_action_output(port = event.port))
     event.connection.send(msg)
-    
-    
+
+
     msg = of.ofp_flow_mod()
-    msg.data = event.ofp 
+    msg.data = event.ofp
     msg.match.dl_src = packet.src
     msg.match.dl_dst = packet.dst
     msg.actions.append(of.ofp_action_output(port = outputPort))
@@ -56,4 +56,3 @@ def _handle_PacketIn (event):
 def launch():
   core.openflow.addListenerByName("PacketIn", _handle_PacketIn)
   log.info("Simple Routing Switch Running.")
-
